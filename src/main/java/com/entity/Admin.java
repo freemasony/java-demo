@@ -1,13 +1,7 @@
 package com.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 @Entity
@@ -38,6 +32,16 @@ public class Admin implements Serializable{
 	
 	@Column(name="state")
 	private int state;
+
+	public String test;
+
+	public String getTest() {
+		return test;
+	}
+
+	public void setTest(String test) {
+		this.test = test;
+	}
 
 	public Long getId() {
 		return id;

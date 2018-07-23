@@ -1,12 +1,10 @@
 package com.filepath;
 
-import java.io.File;
-
 public class FilePathUtils {
 
 	public static void main(String[] args) {
 		/*-----------------1-----------------*/
-		String path = Class.class.getClass().getResource("/resource").getPath();
+		String path = null;
 
 		System.out.println("1:path=" + path);
 		/*-----------------2-----------------*/

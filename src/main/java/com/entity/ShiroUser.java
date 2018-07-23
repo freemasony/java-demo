@@ -15,11 +15,18 @@ public class ShiroUser implements Serializable
 	public String loginName;
 	public String name;
 
+	public ShiroUser() {
+	}
+
 	public ShiroUser(Long id, String loginName, String name)
 	{
 		this.id = id;
 		this.loginName = loginName;
 		this.name = name;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getName()
@@ -30,6 +37,19 @@ public class ShiroUser implements Serializable
 	public String getLoginName()
 	{
 		return loginName;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	/**

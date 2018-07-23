@@ -1947,5 +1947,9 @@ public final class StringUtil
 
         String a = join(",",list);
 
+
+		int fff = computeDisplayLen("我是周建我是周建a");
+		System.out.println("***********"+fff);
+
 	}
 }

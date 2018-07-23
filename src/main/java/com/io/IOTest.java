@@ -1,19 +1,6 @@
 package com.io;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
+import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -27,61 +14,62 @@ public class IOTest {
 	private static String separator=File.separator;
 	
 	public static void main(String[] args) {
+		bufferRead("c:\\1.txt");
 
-		//文件夹名
-		String dirname="E:"+separator+"hello";
-		//文件名
-		String filenames=dirname+separator+"hello_";
-		//指定目录
-		String tdDirname="E:"+separator+"hello";
-		
-		String filename=dirname+separator+"hello_1.txt";
-		
-		String filename2=dirname+separator+"hello_2.txt";
-		
-		String zipfilename=dirname+separator+"hello.zip";
-		
-		String zipfilename1="E:"+separator+"hello.zip";
-		
-		CreateFileDir(dirname);
-		for (int i = 1; i <=5; i++) {
-			CreateNewFile(filenames+i+".txt");
-		}
-		
-		
-		
-
-		TeDingDirFileList(tdDirname);
-		
-		TeDingDirFileListAllPath(tdDirname);
-		
-		isDir(tdDirname);
-		
-		isDir(filenames);
-		
-//		deletFile(filename);
-		
-		searchTdDirAllFile(new File(dirname));
-		
-//		writeFile(filename);
-		
-//		writeFileAppend(filename);
-		
-		readFile(filename);
-		
-		readFileIsEnd(filename);
-		
-		writeFileStr(filename2);
-		
-		readFileStr(filename2);
-		
-		copyFile(filename,filename2);
-		
-		bufferRead(filename2);
-		
-//		zipFile(filename2,zipfilename);
-		
-		zipFiles(tdDirname,zipfilename1);
+//		//文件夹名
+//		String dirname="E:"+separator+"hello";
+//		//文件名
+//		String filenames=dirname+separator+"hello_";
+//		//指定目录
+//		String tdDirname="E:"+separator+"hello";
+//
+//		String filename=dirname+separator+"hello_1.txt";
+//
+//		String filename2=dirname+separator+"hello_2.txt";
+//
+//		String zipfilename=dirname+separator+"hello.zip";
+//
+//		String zipfilename1="E:"+separator+"hello.zip";
+//
+//		CreateFileDir(dirname);
+//		for (int i = 1; i <=5; i++) {
+//			CreateNewFile(filenames+i+".txt");
+//		}
+//
+//
+//
+//
+//		TeDingDirFileList(tdDirname);
+//
+//		TeDingDirFileListAllPath(tdDirname);
+//
+//		isDir(tdDirname);
+//
+//		isDir(filenames);
+//
+////		deletFile(filename);
+//
+//		searchTdDirAllFile(new File(dirname));
+//
+////		writeFile(filename);
+//
+////		writeFileAppend(filename);
+//
+//		readFile(filename);
+//
+//		readFileIsEnd(filename);
+//
+//		writeFileStr(filename2);
+//
+//		readFileStr(filename2);
+//
+//		copyFile(filename,filename2);
+//
+//		bufferRead(filename2);
+//
+////		zipFile(filename2,zipfilename);
+//
+//		zipFiles(tdDirname,zipfilename1);
 	}
 
 	
@@ -382,7 +370,11 @@ public class IOTest {
 			}
 	       
 	}
-	
+
+
+
+
+
 	
 	
 }

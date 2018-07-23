@@ -1,23 +1,19 @@
 package com.jackson.json.databinding;
 
-import java.io.File;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
-
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import java.util.Map;
 
 public class JavaBeanSerializeToJson {
 
@@ -68,8 +64,12 @@ public class JavaBeanSerializeToJson {
 	}
 
 	public static void main(String[] args) throws Exception {
-		System.out.println(convert());
-		System.out.println(jsonToObject2(null, Country.class));
+//		System.out.println(convert());
+//		System.out.println(jsonToObject2(null, Country.class));
+		Map<String,String> map=new HashMap<>();
+		map.put("url","http://www.baidu.com");
+		map.put("noticeType","1");
+		System.out.println(objectTojson(map));
 	}
 
 	
@@ -100,15 +100,13 @@ public class JavaBeanSerializeToJson {
 	}
 	
 	public static <T> T jsonToObject2(String json,Class<T> c){
-		/*
 		json="{\"country_id\":\"China\""
 				+ ",\"birthDate\":\"1949-10-01\""
 				+ ",\"nation\":[\"Han\",\"Meng\",\"Hui\",\"WeiWuEr\",\"Zang\"],"
 				+ "\"lakes\":[\"Qinghai Lake\",\"Poyang Lake\",\"Dongting Lake\",\"Taihu Lake\"],"
 				+ "\"provinces\":[{\"name\":\"Shanxi\",\"population\":37751200},{\"name\":\"ZheJiang\",\"population\":55080000}],"
 				+ "\"traffic\":{\"HighWay(KM)\":4240000,\"Train(KM)\":112000}}";
-		*/
-		
+
 		T o=null;
 		if(StringUtils.isEmpty(json)){
 			return o;

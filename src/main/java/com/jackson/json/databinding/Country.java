@@ -1,18 +1,15 @@
 package com.jackson.json.databinding;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.*;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Country {
 	// 注意：被序列化的bean的private属性字段需要创建getter方法或者属性字段应该为public
-	  
 	private String country_id;
 	  
 	private Date birthDate;
@@ -77,11 +74,11 @@ public class Country {
 		traffic.put(key, value);
 	}
 
-	public List<Province> getProvinces() {
+	public List<com.jackson.json.databinding.Province> getProvinces() {
 		return provinces;
 	}
 
-	public void setProvinces(List<Province> provinces) {
+	public void setProvinces(List<com.jackson.json.databinding.Province> provinces) {
 		this.provinces = provinces;
 	}
 

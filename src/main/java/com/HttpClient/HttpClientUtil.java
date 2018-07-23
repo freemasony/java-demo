@@ -1,12 +1,5 @@
 package com.HttpClient;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpEntity;
@@ -26,6 +19,13 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HttpClientUtil {
 
@@ -176,7 +176,10 @@ public class HttpClientUtil {
 
 
 	public static void main(String[] args) {
-		doGet("http://localhost:8090/lecturer/removeuser/1024388");
+//		doGet("http://localhost:8090/lecturer/removeuser/1024388");
+
+		doPost("http://127.0.0.1:8080/app/api/new/index?mobile=&device=ios&ver=474&sign=1");
+
 	}
 
 }
