@@ -1,7 +1,12 @@
 package com;
 
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.utils.JsonSerializeUtil;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import org.apache.commons.collections.map.LinkedMap;
 import sun.misc.BASE64Encoder;
 
 import java.io.File;
@@ -31,33 +36,17 @@ public class TestMain {
     private  static ScheduledExecutorService scheduledExecutorService= Executors.newScheduledThreadPool(10);
 
     public static void main(String[] args) throws FileNotFoundException, NoSuchFieldException, IllegalAccessException, ParseException {
-        String activityTime=new SimpleDateFormat("yyyyMM").format(new SimpleDateFormat("yyyyMM").parse("2018-07-01 00:00:00"));
-//        System.out.println(Biannary2Decimal(111) );
-//        System.out.println(Decimal2Binary(7) );
 
-        String key="5c40c2380223a:abdd9189acfa67eee1287c700228f190";
-        System.out.println(new BASE64Encoder().encode(key.getBytes()));
-        Map<String,Object> jsonMap=new HashMap<>();
-        Map<String,Object> map=new HashMap<>();
-        map.put("title","冠e通");
-        map.put("content","你好~");
-        map.put("vibrate",1);
-        map.put("lights",0);
+        int[] a={2,3,4,6,8,10};
+        int b=a[0];
+        for (int i = 1; i < a.length-1; i++) {
+            b^=a[i];
+        }
 
-
-        List<String> token=new ArrayList<>();
-        token.add("a6586d4f6d7dc64c4e4e8ccf3380141c65440b71");
-        jsonMap.put("audience_type","token_list");
-        jsonMap.put("platform","android");
-        jsonMap.put("message_type","notify");
-        jsonMap.put("push_id","0");
-        jsonMap.put("environment","dev");
-        jsonMap.put("message",map);
-        jsonMap.put("token_list",token);
+        System.out.println(b);
 
 
 
-        System.out.println("json:"+ JsonSerializeUtil.objectToJson(jsonMap));
 
     }
 

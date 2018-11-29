@@ -5,24 +5,36 @@ package com.thread;
  */
 public class SynchronizedTest {
 
-    public synchronized void test() {
-        System.out.println("当前线程:"+Thread.currentThread().getName()+":start");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public SynchronizedTest() {
+    }
+
+    private String name;
+
+    public SynchronizedTest(String name) {
+        this.name = name;
+    }
+
+    public   void test() {
+        synchronized (this){
+                System.out.println("当前线程:"+Thread.currentThread().getName()+":start");
         }
-        System.out.println("当前线程:"+Thread.currentThread().getName()+":end");
+
     }
 
 
     public synchronized static void staticTest(){
-        System.out.println("当前static线程:"+Thread.currentThread().getName()+":start");
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        for (int i = 0; i < 5; i++) {
+            System.out.println("当前static线程:"+Thread.currentThread().getName()+":start");
         }
-        System.out.println("当前static线程:"+Thread.currentThread().getName()+":end");
+
+    }
+
+
+    public void  test1(){
+        synchronized (name){
+            for (int i = 0; i <5; i++) {
+                System.out.println("当前线程:"+Thread.currentThread().getName()+"name:"+name);
+            }
+        }
     }
 }

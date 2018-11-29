@@ -2,6 +2,7 @@ package com.zookeeper;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
@@ -30,7 +31,7 @@ public class ZookeeperClientDemo {
 		}
 	};
 
-	private static String connectString = "127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183";
+	private static String connectString = "10.100.200.133:2181";
 
 	
 	public static void init(){
@@ -243,8 +244,8 @@ public class ZookeeperClientDemo {
     
     
     public static void main(String[] args) throws IOException, InterruptedException {
-    	String path1="/zk001";
-    	String path2="/zk002";
+		CountDownLatch countDownLatch=new CountDownLatch(1);
+    	String path1="/gqhmt/gq-mdm";
     	ZookeeperClientDemo zookeeperClientdemo=new ZookeeperClientDemo();
     	zookeeperClientdemo.connect();
     	
@@ -254,8 +255,7 @@ public class ZookeeperClientDemo {
     	System.out.println("create2 : "+create2);
     	*/
     	zookeeperClientdemo.exists(path1);
-    	zookeeperClientdemo.exists(path2);
-    	
+
     	/*String data1=zookeeperClientdemo.readData(path1);
     	String data2=zookeeperClientdemo.readData(path2);
     	System.out.println("data1 : "+data1);
@@ -266,7 +266,9 @@ public class ZookeeperClientDemo {
     	 data2=zookeeperClientdemo.readData(path2);
     	 
     	System.out.println("data2 : "+data2);*/
-    	
+
+    	countDownLatch.await();
+
     	zookeeperClientdemo.close();
 	}
 	

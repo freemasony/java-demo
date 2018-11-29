@@ -14,8 +14,16 @@ public class IOTest {
 	private static String separator=File.separator;
 	
 	public static void main(String[] args) {
-		bufferRead("c:\\1.txt");
-
+//		bufferRead("c:\\1.txt");
+		File logFile = new File("/tmp/logs/xxl-job/jobhandler/", "2018-08-09/254376.log");
+		if(!logFile.exists()) {
+			try {
+				logFile.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
 //		//文件夹名
 //		String dirname="E:"+separator+"hello";
 //		//文件名
@@ -31,16 +39,16 @@ public class IOTest {
 //
 //		String zipfilename1="E:"+separator+"hello.zip";
 //
-//		CreateFileDir(dirname);
+		CreateFileDir("/FFFFFGQGETfiles/dl/pkg/get");
 //		for (int i = 1; i <=5; i++) {
 //			CreateNewFile(filenames+i+".txt");
 //		}
 //
 //
 //
-//
+////
 //		TeDingDirFileList(tdDirname);
-//
+////
 //		TeDingDirFileListAllPath(tdDirname);
 //
 //		isDir(tdDirname);

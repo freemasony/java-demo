@@ -24,7 +24,7 @@ public class SynchronizedTask implements Runnable {
      */
     @Override
     public void run() {
-//        t.test();
-        t.staticTest();
+//        t.test1();
+        t.test();
     }
 }
